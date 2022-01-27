@@ -1,6 +1,6 @@
 // Quick and dirty tool to pack data into a ColecoVision Megacart
 //
-// packdatacart <outfile> <program> <data1> <data2> <data3> ...
+// packcolecocart <outfile> <program> <data1> <data2> <data3> ...
 // 
 // Program first ensures that the program is padded to 8k (warn if bigger).
 // 
@@ -25,7 +25,7 @@ unsigned char buf[PAGESIZE];
 FILE *fIn, *fOut;
 
 // got to stuff my credits somewhere
-const unsigned char *EGOSTRING = (const unsigned char *)"Made with packdatacart by Tursi - http://harmlesslion.com - ";
+const unsigned char *EGOSTRING = (const unsigned char *)"Made with packcolecocart by Tursi - http://harmlesslion.com - ";
 
 void egofill(unsigned char *buf, const unsigned char *datastr, int size) {
 	const unsigned char *pStr = datastr;
@@ -40,7 +40,7 @@ int main(int argc, char *argv[]) {
 	int adr;
 
 	if (argc < 4) {
-		printf("packdatacart <outfile> <program> <data1> <data2> <data3> ...\n");
+		printf("packcolecocart <outfile> <program> <data1> <data2> <data3> ...\n");
 		printf("Program is padded to 16k, then banks are appended.\n");
 		printf("MegaCart uses inverted bank order, program goes at the end.\n");
 		return -1;
